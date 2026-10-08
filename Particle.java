@@ -42,9 +42,36 @@ public class Particle
         return ax+ay;
     }
 
+    public void handleBorders()
+    {
+        if (xLocation < 0)
+        {
+            xLocation = 0;
+            vx = -vx;
+        }
+
+        if (xLocation > width)
+        {
+            xLocation = width;
+            vx = -vx;
+        }
+
+        if (yLocation < 0)
+        {
+            yLocation = 0;
+            vy = -vy;
+        }
+
+        if (yLocation > height)
+        {
+            yLocation = height;
+            vy = -vy;
+        }
+    }
+
     public void updateVelocity(double dt) {
-        vx = dt*ax;
-        vy = dt*ay;
+        vx += dt*ax;
+        vy += dt*ay;
     }
 
     public void updatePosition(double dt){
@@ -54,6 +81,8 @@ public class Particle
             yLocation += dt*vy;
         }
     }
+
+
 
 
 }

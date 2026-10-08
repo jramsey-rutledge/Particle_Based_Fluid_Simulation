@@ -5,17 +5,18 @@ public class Simulation {
 
     public static void main(String[] args) {
 
-        // time and spatial variables
-        double dt = 0.01;
+        // time variables
+        double dt = 0.1;
         double tf = 10;
-        double numTimesteps = tf/dt;
+
+        // particle information
         int numParticles = 10;
+
+        // window dimensions
+        int height, width;
 
         // set up window
         JFrame frame = new JFrame("Simulation");
-        frame.setSize(500, 500);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
 
         // create particle list
         ArrayList<Particle> particleList = new ArrayList<>();
@@ -28,6 +29,9 @@ public class Simulation {
         // simulation panel
         SimulationPanel simPan = new SimulationPanel(particleList);
         frame.add(simPan);
+        frame.setSize(width, height);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
 
         // simulation loop
         Timer timer = new Timer(16, e ->
@@ -36,10 +40,13 @@ public class Simulation {
             {
                 i.updateVelocity(dt);
                 i.updatePosition(dt);
+                i.handleBorders(height,width);
             }
 
             simPan.repaint();
         });
+
+        timer.start();
         
     }
 }
