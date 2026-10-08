@@ -42,7 +42,7 @@ public class Particle
         return ax+ay;
     }
 
-    public void handleBorders()
+    public void handleBorders(int width, int height)
     {
         if (xLocation < 0)
         {

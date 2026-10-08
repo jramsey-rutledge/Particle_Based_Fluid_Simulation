@@ -13,7 +13,7 @@ public class Simulation {
         int numParticles = 10;
 
         // window dimensions
-        int height, width;
+        int height =500, width=500;
 
         // set up window
         JFrame frame = new JFrame("Simulation");
@@ -40,7 +40,7 @@ public class Simulation {
             {
                 i.updateVelocity(dt);
                 i.updatePosition(dt);
-                i.handleBorders(height,width);
+                i.handleBorders(width,height);
             }
 
             simPan.repaint();
