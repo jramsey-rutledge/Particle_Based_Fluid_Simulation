@@ -3,8 +3,8 @@ public class Particle
     protected double xLocation, yLocation; // location
     protected double vx, vy; // velocity
     protected double ax, ay; // acceleration
-    protected final double MASS = 1.0; // 2.99e-23; 
-    protected final double RADIUS = 5;
+    public final double MASS = 1.0; // 2.99e-23; 
+    public final double RADIUS = 5;
 
     public Particle() 
     {
@@ -81,6 +81,13 @@ public class Particle
         }
     }
 
+    public double distanceTo(Particle other)
+    {
+        double dx = this.xLocation - other.xLocation;
+        double dy = this.yLocation - other.yLocation;
+
+        return Math.sqrt(dx * dx + dy * dy);
+    }
 
 
 

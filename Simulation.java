@@ -43,6 +43,18 @@ public class Simulation {
                 i.handleBorders(width,height);
             }
 
+            // handle particle collisions
+            for (int i = 0; i < particleList.size(); i++)
+            {
+                for (int j = i + 1; j < particleList.size(); j++)
+                {
+                    Particle p1 = particleList.get(i);
+                    Particle p2 = particleList.get(j);
+
+                    ParticleInteractions.handleCollision(p1, p2);
+                }
+            }
+
             simPan.repaint();
         });
 
