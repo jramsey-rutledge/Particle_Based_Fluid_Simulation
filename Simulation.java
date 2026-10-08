@@ -10,7 +10,7 @@ public class Simulation {
         double tf = 10;
 
         // particle information
-        int numParticles = 10;
+        int numParticles = 100;
 
         // window dimensions
         int height =500, width=500;

@@ -1,11 +1,10 @@
 public class Particle 
 {
-    protected double xLocation; // x location
-    protected double yLocation; // y location
-    protected double vx; // velocity in x direction
-    protected double vy; // velocity in y direction
-    protected double ax, ay; 
+    protected double xLocation, yLocation; // location
+    protected double vx, vy; // velocity
+    protected double ax, ay; // acceleration
     protected final double MASS = 1.0; // 2.99e-23; 
+    protected final double RADIUS = 5;
 
     public Particle() 
     {
@@ -13,7 +12,7 @@ public class Particle
      yLocation = Math.random()*500;
      vx = 0;
      vy = 0;
-     ax = 0;
+     ax = Math.random()*20-10;
      ay = 9.8;
     }
 
@@ -44,27 +43,27 @@ public class Particle
 
     public void handleBorders(int width, int height)
     {
-        if (xLocation < 0)
+        if (xLocation - RADIUS < 0)
         {
-            xLocation = 0;
+            xLocation = RADIUS;
             vx = -vx;
         }
 
-        if (xLocation > width)
+        if (xLocation + RADIUS > width)
         {
-            xLocation = width;
+            xLocation = width-RADIUS;
             vx = -vx;
         }
 
-        if (yLocation < 0)
+        if (yLocation - RADIUS < 0)
         {
-            yLocation = 0;
+            yLocation = RADIUS;
             vy = -vy;
         }
 
-        if (yLocation > height)
+        if (yLocation + RADIUS > height)
         {
-            yLocation = height;
+            yLocation = height - RADIUS;
             vy = -vy;
         }
     }
