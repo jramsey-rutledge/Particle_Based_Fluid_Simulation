@@ -17,7 +17,7 @@ public class SimulationPanel extends JPanel
     {
         super.paintComponent(g);
 
-        g.setColor(Color.BLUE);
+        g.setColor(Color.PINK);
 
         for (Particle p : particles)
         {

@@ -10,10 +10,10 @@ public class Simulation {
         double tf = 10;
 
         // particle information
-        int numParticles = 100;
+        int numParticles = 500;
 
         // window dimensions
-        int height =500, width=500;
+        int height=500, width=500;
 
         // set up window
         JFrame frame = new JFrame("Simulation");

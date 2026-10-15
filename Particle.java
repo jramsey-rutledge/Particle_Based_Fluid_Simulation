@@ -13,7 +13,7 @@ public class Particle
      vx = 0;
      vy = 0;
      ax = Math.random()*20-10;
-     ay = 9.8;
+     ay = 7.2;
     }
 
     public double getX() 
